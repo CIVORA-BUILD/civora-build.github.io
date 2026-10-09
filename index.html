@@ -1,1 +1,353 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="CIVORA — a civil engineering platform created by Mohammed Shahid TA. Discover smarter construction tools, engineering calculations and the journey behind the project.">
+  <meta name="author" content="Mohammed Shahid TA">
+  <meta property="og:title" content="CIVORA | Building the Future">
+  <meta property="og:description" content="Engineering ambition into reality. Meet the founder and discover CIVORA.">
+  <title>CIVORA — Building the Future</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #080808;
+      --panel: #111111;
+      --gold: #e8bd65;
+      --light-gold: #ffe5a8;
+      --white: #f7f5ef;
+      --muted: #a6a39b;
+      --line: rgba(232,189,101,.2);
+      --font: "DM Sans", sans-serif;
+      --display: "Space Grotesk", sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: var(--font);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(232,189,101,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(232,189,101,.035) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 90%);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .container { width: min(1120px, 90%); margin: auto; }
+    .gold { color: var(--gold); }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .section { padding: 100px 0; }
+    .section-heading { max-width: 720px; margin-bottom: 42px; }
+    .section-heading h2 {
+      font: 700 clamp(2.2rem, 5vw, 3.7rem)/1.12 var(--display);
+      letter-spacing: -1.5px;
+      margin: 15px 0;
+    }
+    .section-heading p { color: var(--muted); max-width: 650px; }
+    .section-heading.center { text-align: center; margin-inline: auto; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8,8,8,.9);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font: 700 1.65rem var(--display);
+      letter-spacing: 2px;
+    }
+    .brand span { color: var(--gold); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+    .nav-links a {
+      font-size: .87rem;
+      color: #d2cfc6;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 12px 20px;
+      border: 1px solid var(--gold);
+      border-radius: 4px;
+      background: var(--gold);
+      color: #15110a;
+      font-size: .9rem;
+      font-weight: 700;
+      transition: .25s ease;
+    }
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(232,189,101,.18);
+    }
+    .button.outline { background: transparent; color: var(--gold); }
+    .button.outline:hover { background: rgba(232,189,101,.08); }
+
+    .hero {
+      min-height: 650px;
+      padding: 95px 0;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      align-items: center;
+      gap: 55px;
+    }
+
+    .hero h1 {
+      font: 700 clamp(3.2rem, 7vw, 6rem)/.99 var(--display);
+      letter-spacing: -4px;
+      margin: 22px 0;
+    }
+    .hero h1 span {
+      display: block;
+      color: var(--gold);
+      text-shadow: 0 0 40px rgba(232,189,101,.13);
+    }
+    .hero-copy { max-width: 570px; color: var(--muted); font-size: 1.05rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 30px; }
+    .hero-note { margin-top: 25px; color: #858178; font-size: .82rem; }
+
+    .blueprint {
+      position: relative;
+      min-height: 390px;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(rgba(232,189,101,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(232,189,101,.06) 1px, transparent 1px),
+        linear-gradient(135deg, #17150f, #0b0b0b 70%);
+      background-size: 25px 25px, 25px 25px, auto;
+    }
+
+    .blueprint::before, .blueprint::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(232,189,101,.18);
+      border-radius: 50%;
+      width: 290px;
+      height: 290px;
+      animation: rotate 24s linear infinite;
+    }
+    .blueprint::after {
+      width: 225px;
+      height: 225px;
+      border-style: dashed;
+      animation-direction: reverse;
+      animation-duration: 35s;
+    }
+
+    .building {
+      position: relative;
+      z-index: 1;
+      width: 150px;
+      height: 215px;
+      border: 2px solid var(--gold);
+      background: linear-gradient(135deg, rgba(232,189,101,.16), rgba(232,189,101,.015));
+      clip-path: polygon(0 13%, 70% 0, 100% 12%, 100% 100%, 0 100%);
+      box-shadow: 0 0 45px rgba(232,189,101,.08);
+      animation: float 5s ease-in-out infinite;
+    }
+    .building::before {
+      content: "";
+      position: absolute;
+      inset: 22px 15px 12px;
+      background: repeating-linear-gradient(
+        to bottom,
+        transparent 0 25px,
+        rgba(232,189,101,.8) 26px 28px
+      );
+      border-left: 2px solid rgba(232,189,101,.7);
+      border-right: 2px solid rgba(232,189,101,.7);
+    }
+    .building::after {
+      content: "C";
+      position: absolute;
+      right: -30px;
+      bottom: -22px;
+      color: rgba(232,189,101,.12);
+      font: 700 8rem var(--display);
+    }
+
+    .blueprint-label {
+      position: absolute;
+      bottom: 18px;
+      left: 18px;
+      color: var(--gold);
+      font-size: .7rem;
+      letter-spacing: 2px;
+    }
+    .blueprint-tag {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      padding: 7px 10px;
+      border: 1px solid var(--line);
+      color: var(--gold);
+      font-size: .7rem;
+      letter-spacing: 1px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-block: 1px solid var(--line);
+    }
+    .stat { padding: 26px 20px; text-align: center; }
+    .stat + .stat { border-left: 1px solid var(--line); }
+    .stat strong { display: block; color: var(--gold); font: 600 1.2rem var(--display); }
+    .stat span { color: var(--muted); font-size: .8rem; }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .card {
+      position: relative;
+      padding: 27px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, rgba(255,255,255,.035), rgba(255,255,255,.008));
+      transition: transform .25s, border-color .25s;
+    }
+    .card:hover { transform: translateY(-5px); border-color: rgba(232,189,101,.65); }
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      color: var(--gold);
+      font-size: 1.35rem;
+      margin-bottom: 22px;
+    }
+    .card h3 { font: 600 1.2rem var(--display); margin-bottom: 10px; }
+    .card p { color: var(--muted); font-size: .92rem; }
+    .card small { display: block; margin-top: 20px; color: var(--gold); letter-spacing: 1px; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 65px;
+      align-items: center;
+    }
+    .founder-panel {
+      min-height: 370px;
+      padding: 30px;
+      border: 1px solid var(--line);
+      background: radial-gradient(circle at top left, rgba(232,189,101,.14), transparent 60%), var(--panel);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .founder-mark {
+      font: 700 6rem/.9 var(--display);
+      color: var(--gold);
+      letter-spacing: -5px;
+      margin-bottom: auto;
+    }
+    .founder-panel h3 { font: 600 1.5rem var(--display); }
+    .founder-panel p { color: var(--muted); font-size: .9rem; }
+    .about-copy p { color: var(--muted); margin: 16px 0; }
+    .about-copy strong { color: var(--white); }
+    .pill-list { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 23px; }
+    .pill {
+      padding: 7px 12px;
+      border: 1px solid var(--line);
+      color: #d9d4c8;
+      font-size: .8rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="container">
+      <a class="brand" href="#home" aria-label="CIVORA home">CIV<span>O</span>RA.</a>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">Founder</a>
+        <a href="#features">Platform</a>
+        <a href="#journey">Journey</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="button outline" href="#features">Explore CIVORA ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="container hero" id="home">
+      <div>
+        <p class="eyebrow">Engineering · Innovation · Ambition</p>
+        <h1>Building<br>Beyond <span>Limits.</span></h1>
+        <p class="hero-copy">
+          A new generation of civil engineering starts with a bold idea.
+          Meet CIVORA — a project built to bring useful engineering tools,
+          learning and construction technology into one place.
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="#features">Discover CIVORA ↗</a>
+          <a class="button outline" href="#about">Meet the Founder</a>
+        </div>
+        <p class="hero-note">An independent project built with purpose, persistence and code.</p>
+      </div>
+
+      <div class="blueprint" aria-label="Decorative architectural blueprint illustration">
+        <span class="blueprint-tag">DESIGN THE FUTURE</span>
+        <div class="building"></div>
+        <span class="blueprint-label">CIVORA / CONSTRUCTION TECHNOLOGY</span>
+      </div>
+    </section>
+
+    <div class="container stats">
+      <div class="stat"><strong>BUILD</strong><span>With purpose</span></div>
+      <div class="stat"><strong>LEARN</strong><span>Every day</span></div>
+      <div class="stat"><strong>INNOVATE</strong><span>Without limits</span></div>
+    </div>
