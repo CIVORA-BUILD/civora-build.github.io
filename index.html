@@ -4,18 +4,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0b0b0b">
-  <meta name="description" content="CIVORA — smarter tools for civil engineering students, engineers and builders.">
-  <title>CIVORA | Build Smarter. Build Better.</title>
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="CIVORA is building smarter tools for civil engineering students, engineers and construction professionals. Coming soon on Google Play.">
+  <title>CIVORA — Build Smarter. Build Better.</title>
 
   <style>
     :root {
-      --bg: #0b0b0b;
-      --panel: #151515;
-      --gold: #d9ad50;
-      --white: #f6f4ee;
-      --muted: #aaa69c;
-      --border: rgba(217,173,80,.25);
+      --bg: #080808;
+      --panel: #141414;
+      --gold: #e6b84f;
+      --white: #f7f5ef;
+      --muted: #aaa79f;
+      --border: rgba(230,184,79,.27);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -24,23 +24,23 @@
       background: var(--bg);
       color: var(--white);
       font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
+      line-height: 1.65;
       overflow-x: hidden;
     }
-    a { color: inherit; text-decoration: none; }
-    button, input, select { font: inherit; }
-    button, .btn { cursor: pointer; }
+    a { text-decoration: none; color: inherit; }
+    button, input { font: inherit; }
     .container { width: min(1120px, 90%); margin: auto; }
     .gold { color: var(--gold); }
     .muted { color: var(--muted); }
 
+    /* Navigation */
     header {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(11,11,11,.94);
+      background: rgba(8,8,8,.94);
       border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(14px);
     }
     nav {
       min-height: 76px;
@@ -49,210 +49,361 @@
       justify-content: space-between;
       gap: 20px;
     }
-    .brand { display: flex; align-items: center; gap: 11px; }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
     .brand-mark {
-      width: 43px; height: 43px;
-      display: grid; place-items: center;
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      color: var(--gold);
       border: 2px solid var(--gold);
       border-radius: 12px;
-      color: var(--gold);
-      font-size: 27px; font-weight: 900;
-      transform: skew(-5deg);
+      font-size: 27px;
+      font-weight: 900;
     }
-    .brand-name { font-size: 23px; font-weight: 900; letter-spacing: 3px; }
+    .brand-name {
+      font-size: 23px;
+      font-weight: 900;
+      letter-spacing: 3px;
+    }
     .brand-name span { color: var(--gold); }
-    .nav-links { display: flex; gap: 25px; align-items: center; }
-    .nav-links a { color: #d2d0ca; font-size: 14px; transition: .2s; }
+    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .nav-links a { font-size: 14px; color: #d3d0c8; }
     .nav-links a:hover { color: var(--gold); }
     .menu-btn {
-      display: none; background: none; color: var(--gold);
-      border: 1px solid var(--border); padding: 8px 12px; border-radius: 8px;
+      display: none;
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 12px;
     }
 
+    /* Buttons */
     .btn {
-      display: inline-flex; justify-content: center; align-items: center;
-      padding: 12px 20px; border-radius: 8px;
-      background: var(--gold); color: #101010;
-      border: 1px solid var(--gold); font-weight: 800;
-      transition: transform .2s, box-shadow .2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 20px;
+      border: 1px solid var(--gold);
+      border-radius: 8px;
+      background: var(--gold);
+      color: #111;
+      font-weight: 800;
+      transition: .25s;
+      cursor: pointer;
     }
-    .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 28px #d9ad5033; }
-    .btn-outline { color: var(--gold); background: transparent; }
-    .btn-small { padding: 9px 14px; font-size: 13px; }
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px #e6b84f30;
+    }
+    .btn-outline { background: transparent; color: var(--gold); }
+    .btn-small { padding: 8px 13px; font-size: 13px; }
 
+    /* Hero */
     .hero {
-      min-height: 650px;
-      display: grid; grid-template-columns: 1.15fr .85fr;
-      align-items: center; gap: 50px;
-      padding: 75px 0 85px;
-      position: relative;
+      min-height: 640px;
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      align-items: center;
+      gap: 45px;
+      padding: 75px 0;
     }
     .eyebrow {
-      color: var(--gold); letter-spacing: 3px;
-      text-transform: uppercase; font-size: 12px; font-weight: 800;
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
     }
     h1 {
-      font-size: clamp(42px, 6vw, 76px);
-      line-height: 1.04; letter-spacing: -2px;
-      margin: 22px 0;
+      font-size: clamp(43px, 6vw, 75px);
+      line-height: 1.06;
+      letter-spacing: -2px;
+      margin: 20px 0;
     }
     h1 span { color: var(--gold); }
-    .hero p { color: var(--muted); max-width: 560px; font-size: 17px; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 30px; }
-    .hero-note { margin-top: 24px; font-size: 13px; color: #858178; }
+    .hero-copy > p {
+      max-width: 550px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-top: 27px;
+    }
+    .hero-note { color: #8f8a80; font-size: 13px; margin-top: 20px; }
 
-    .blueprint {
-      min-height: 360px; display: grid; place-items: center;
-      border: 1px solid var(--border); border-radius: 25px;
+    .hero-visual {
+      position: relative;
+      min-height: 470px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 25px;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      overflow: hidden;
       background:
-        linear-gradient(rgba(217,173,80,.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(217,173,80,.045) 1px, transparent 1px),
-        radial-gradient(circle at 50% 50%, #d9ad5014, transparent 65%), #101010;
-      background-size: 26px 26px, 26px 26px, auto, auto;
-      position: relative; overflow: hidden;
+        linear-gradient(rgba(230,184,79,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(230,184,79,.045) 1px, transparent 1px),
+        radial-gradient(circle at 50% 35%, #e6b84f1a, transparent 65%),
+        #101010;
+      background-size: 25px 25px, 25px 25px, auto, auto;
     }
-    .blueprint::after {
-      content: ""; position: absolute; inset: 0;
-      background: linear-gradient(110deg, transparent 35%, #d9ad5010 50%, transparent 65%);
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 30%, #e6b84f12 50%, transparent 70%);
       transform: translateX(-100%);
-      animation: shine 5s infinite;
+      animation: shine 6s infinite;
     }
-    .building { display: flex; align-items: end; gap: 9px; height: 240px; }
-    .tower {
-      width: 64px; border: 2px solid var(--gold);
-      background: linear-gradient(180deg, #d9ad501c, #d9ad5005);
-      display: flex; flex-direction: column; gap: 9px;
-      padding: 12px 9px; animation: float 4s ease-in-out infinite;
+    .founder-hero-photo {
+      width: min(100%, 330px);
+      max-height: 360px;
+      object-fit: cover;
+      object-position: center top;
+      border: 1px solid #e6b84f80;
+      border-radius: 150px 150px 18px 18px;
+      box-shadow: 0 0 45px #e6b84f1a;
+      position: relative;
+      z-index: 1;
     }
-    .tower:nth-child(1) { height: 130px; animation-delay: -.8s; }
-    .tower:nth-child(2) { height: 215px; }
-    .tower:nth-child(3) { height: 170px; animation-delay: -1.5s; }
-    .window { height: 9px; background: var(--gold); opacity: .75; }
-    .ground-line { position: absolute; bottom: 45px; width: 80%; height: 2px; background: var(--gold); opacity: .6; }
-    .blueprint-label {
-      position: absolute; bottom: 14px; left: 18px;
-      font-size: 11px; color: var(--gold); letter-spacing: 2px;
+    .founder-label {
+      text-align: center;
+      padding-top: 15px;
+      position: relative;
+      z-index: 1;
     }
-    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
-    @keyframes shine { 0%,65% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+    .founder-label strong { display: block; font-size: 21px; }
+    .founder-label span { color: var(--gold); font-size: 13px; }
 
-    section { padding: 85px 0; }
-    .section-head { margin-bottom: 35px; }
-    .section-head h2 { font-size: clamp(30px, 4vw, 43px); margin: 10px 0; }
-    .section-head p { color: var(--muted); max-width: 650px; }
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .launch-pill {
+      display: inline-block;
+      margin-top: 25px;
+      border: 1px solid var(--gold);
+      border-radius: 50px;
+      padding: 9px 15px;
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+    }
+    .launch-pill span { color: var(--white); }
+
+    @keyframes shine {
+      0%, 70% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    /* Sections */
+    section { padding: 82px 0; }
+    .section-head { margin-bottom: 34px; }
+    .section-head h2 {
+      font-size: clamp(30px, 4vw, 43px);
+      line-height: 1.2;
+      margin: 12px 0;
+    }
+    .section-head p { max-width: 650px; color: var(--muted); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
     .card {
-      padding: 25px; border-radius: 15px;
-      border: 1px solid #282722; background: var(--panel);
+      padding: 24px;
+      border: 1px solid #292823;
+      border-radius: 14px;
+      background: var(--panel);
       transition: transform .25s, border-color .25s;
     }
-    .card:hover { transform: translateY(-6px); border-color: var(--gold); }
-    .card-icon { font-size: 30px; margin-bottom: 13px; }
-    .card h3 { margin-bottom: 8px; font-size: 19px; }
+    .card:hover { transform: translateY(-5px); border-color: var(--gold); }
+    .card-icon { font-size: 30px; margin-bottom: 12px; }
+    .card h3 { font-size: 19px; margin-bottom: 8px; }
     .card p { color: var(--muted); font-size: 14px; }
-    .card .card-link { display: inline-block; color: var(--gold); margin-top: 17px; font-size: 13px; font-weight: 700; }
+    .card-link {
+      display: inline-block;
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 13px;
+      margin-top: 15px;
+    }
 
+    /* Calculators */
     .tools-section { background: #0e0e0e; }
-    .calculator-layout { display: grid; grid-template-columns: 220px 1fr; gap: 22px; }
+    .calculator-layout {
+      display: grid;
+      grid-template-columns: 205px 1fr;
+      gap: 20px;
+    }
     .tool-tabs { display: flex; flex-direction: column; gap: 8px; }
     .tool-tab {
-      padding: 13px; color: var(--muted); background: var(--panel);
-      border: 1px solid #292929; border-radius: 9px; text-align: left;
+      padding: 13px;
+      color: var(--muted);
+      text-align: left;
+      background: var(--panel);
+      border: 1px solid #292929;
+      border-radius: 9px;
+      cursor: pointer;
     }
     .tool-tab.active { color: var(--gold); border-color: var(--gold); }
     .calc-panel {
-      padding: 28px; border: 1px solid var(--border);
-      border-radius: 15px; background: var(--panel);
+      padding: 27px;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      background: var(--panel);
     }
-    .calc-panel h3 { margin-bottom: 8px; font-size: 23px; }
-    .calc-panel > p { color: var(--muted); font-size: 14px; margin-bottom: 22px; }
+    .calc-panel h3 { font-size: 23px; margin-bottom: 7px; }
+    .calc-panel > p { color: var(--muted); font-size: 14px; margin-bottom: 20px; }
     .fields { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
-    .field label { display: block; color: #d5d1c8; font-size: 13px; margin-bottom: 7px; }
-    .field input, .field select {
-      width: 100%; padding: 12px;
-      color: var(--white); background: #0c0c0c;
-      border: 1px solid #38352e; border-radius: 8px; outline: none;
+    .field label { display: block; font-size: 13px; margin-bottom: 6px; }
+    .field input {
+      width: 100%;
+      padding: 12px;
+      color: var(--white);
+      background: #0b0b0b;
+      border: 1px solid #3b382f;
+      border-radius: 8px;
     }
-    .field input:focus, .field select:focus { border-color: var(--gold); }
-    .calc-actions { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; }
+    .field input:focus { outline: 1px solid var(--gold); }
+    .calc-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
     .result {
-      display: none; margin-top: 20px; padding: 17px;
-      background: #d9ad5010; border: 1px solid var(--border); border-radius: 10px;
+      display: none;
+      margin-top: 20px;
+      padding: 17px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #e6b84f0d;
     }
-    .result strong { display: block; font-size: 25px; color: var(--gold); }
+    .result strong { display: block; color: var(--gold); font-size: 25px; }
     .result small { color: var(--muted); }
-    .note { color: var(--muted); font-size: 12px; margin-top: 15px; }
+    .note { color: var(--muted); font-size: 12px; margin-top: 16px; }
 
-    .founder-layout { display: grid; grid-template-columns: .7fr 1.3fr; gap: 40px; align-items: center; }
-    .founder-mark {
-      min-height: 280px; display: grid; place-items: center;
-      border: 1px solid var(--border); border-radius: 20px;
-      background: radial-gradient(circle, #d9ad5019, #111 65%);
+    /* Founder */
+    .founder-layout {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 42px;
+      align-items: center;
     }
-    .founder-mark span { font-size: 100px; font-weight: 900; color: var(--gold); }
-    .founder-copy h2 { font-size: 35px; margin: 12px 0; }
-    .founder-copy p { color: var(--muted); margin-bottom: 14px; }
-    .stats { display: flex; flex-wrap: wrap; gap: 25px; margin-top: 24px; }
-    .stats strong { display: block; color: var(--gold); font-size: 21px; }
+    .founder-photo-frame {
+      max-width: 400px;
+      margin: auto;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      background: #151515;
+      box-shadow: 0 0 35px #e6b84f12;
+    }
+    .founder-photo-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    .founder-copy h2 { font-size: 35px; line-height: 1.2; margin: 12px 0; }
+    .founder-copy p { color: var(--muted); margin: 13px 0; }
+    .stats { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 22px; }
+    .stats strong { display: block; color: var(--gold); font-size: 20px; }
     .stats span { color: var(--muted); font-size: 12px; }
 
-    .project-card { overflow: hidden; padding: 0; }
-    .project-art {
-      min-height: 160px; display: grid; place-items: center;
-      font-size: 52px; border-bottom: 1px solid #302b20;
-      background: linear-gradient(135deg, #d9ad5017, #121212 70%);
+    /* Launch banner */
+    .launch-section { padding-top: 20px; }
+    .launch-card {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      padding: 55px 25px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background:
+        radial-gradient(ellipse at top, #e6b84f1b, transparent 65%),
+        #111;
     }
-    .project-info { padding: 20px; }
-
-    .cta {
-      padding: 55px 30px; text-align: center;
-      border: 1px solid var(--border); border-radius: 20px;
-      background: radial-gradient(circle at top, #d9ad5015, transparent 65%), #121212;
+    .launch-card h2 { font-size: clamp(35px, 5vw, 58px); line-height: 1.1; margin: 15px 0; }
+    .launch-card p { max-width: 650px; margin: 0 auto; color: var(--muted); }
+    .launch-month {
+      display: inline-block;
+      color: #111;
+      background: var(--gold);
+      border-radius: 8px;
+      padding: 8px 18px;
+      margin-top: 20px;
+      font-weight: 900;
+      letter-spacing: 2px;
     }
-    .cta h2 { font-size: clamp(28px, 4vw, 42px); margin: 10px 0; }
-    .cta p { color: var(--muted); margin: 0 auto 24px; max-width: 600px; }
 
+    /* Footer */
     footer { padding: 30px 0; border-top: 1px solid #292929; }
     .footer-row { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
     footer p, footer a { color: var(--muted); font-size: 13px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 17px; }
     footer a:hover { color: var(--gold); }
-    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+
     #topBtn {
-      position: fixed; right: 20px; bottom: 20px; z-index: 80;
-      display: none; background: var(--gold); color: #111;
-      border: 0; border-radius: 50%; width: 44px; height: 44px;
-      font-size: 20px; box-shadow: 0 5px 20px #0008;
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 80;
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 0;
+      border-radius: 50%;
+      background: var(--gold);
+      color: #111;
+      font-size: 20px;
+      cursor: pointer;
     }
     .reveal { opacity: 0; transform: translateY(18px); transition: .65s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
     @media (max-width: 800px) {
-      .hero { grid-template-columns: 1fr; gap: 35px; padding-top: 55px; }
-      .blueprint { min-height: 300px; }
+      .hero { grid-template-columns: 1fr; padding: 55px 0; }
+      .hero-visual { min-height: 430px; }
       .grid { grid-template-columns: repeat(2, 1fr); }
       .founder-layout { grid-template-columns: 1fr; }
-      .founder-mark { min-height: 190px; }
+      .founder-photo-frame { max-width: 340px; }
       .calculator-layout { grid-template-columns: 1fr; }
       .tool-tabs { flex-direction: row; overflow-x: auto; padding-bottom: 5px; }
       .tool-tab { min-width: 125px; text-align: center; }
       .nav-links {
-        display: none; position: absolute; top: 76px; left: 0; right: 0;
-        background: #101010; border-bottom: 1px solid var(--border);
-        padding: 20px 5%; flex-direction: column; align-items: stretch;
+        display: none;
+        position: absolute;
+        top: 76px; left: 0; right: 0;
+        padding: 20px 5%;
+        flex-direction: column;
+        align-items: stretch;
+        background: #101010;
+        border-bottom: 1px solid var(--border);
       }
       .nav-links.open { display: flex; }
-      .menu-btn { display: block; }
       .nav-links .btn { text-align: center; }
+      .menu-btn { display: block; }
     }
     @media (max-width: 520px) {
       .grid { grid-template-columns: 1fr; }
       .fields { grid-template-columns: 1fr; }
-      section { padding: 65px 0; }
-      h1 { letter-spacing: -1px; }
-      .calc-panel { padding: 20px; }
+      section { padding: 62px 0; }
+      .calc-panel { padding: 19px; }
+      .hero-visual { min-height: 380px; }
+      .founder-copy h2 { font-size: 30px; }
     }
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation-duration: .01ms !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+      }
       .reveal { opacity: 1; transform: none; }
     }
   </style>
@@ -274,186 +425,208 @@
         <a href="#features">Features</a>
         <a href="#tools">Calculators</a>
         <a href="#about">Founder</a>
-        <a href="#projects">Projects</a>
-        <a class="btn btn-small" href="#contact">Get in touch</a>
+        <a href="#launch">Launch</a>
+        <a class="btn btn-small" href="#contact">Contact</a>
       </div>
     </nav>
   </div>
 </header>
 
 <main>
+  <!-- HOMEPAGE HERO -->
   <section class="container hero" id="home">
-    <div class="reveal">
-      <div class="eyebrow">Built for the future of construction</div>
+    <div class="hero-copy reveal">
+      <div class="eyebrow">Build · Plan · Grow</div>
       <h1>Build Smarter.<br><span>Build Better.</span></h1>
       <p>
-        CIVORA brings useful civil engineering tools, construction calculations
-        and learning resources together in one place — designed for students,
-        engineers and the next generation of builders.
+        Your civil engineering companion. Discover practical construction
+        calculators, engineering tools and learning resources in one place.
       </p>
+
+      <div class="launch-pill">COMING SOON <span>· GOOGLE PLAY</span></div>
+
       <div class="hero-actions">
-        <a href="#tools" class="btn">Explore Tools ↗</a>
-        <a href="#about" class="btn btn-outline">Meet the Founder</a>
+        <a class="btn" href="#launch">Discover the Launch ↗</a>
+        <a class="btn btn-outline" href="#tools">Explore Calculators</a>
       </div>
-      <div class="hero-note">A student-built project with a vision to simplify civil engineering.</div>
+      <div class="hero-note">Created by a civil engineering student with a big vision.</div>
     </div>
 
-    <div class="blueprint reveal" aria-label="Animated building illustration">
-      <div class="building" aria-hidden="true">
-        <div class="tower"><div class="window"></div><div class="window"></div><div class="window"></div></div>
-        <div class="tower"><div class="window"></div><div class="window"></div><div class="window"></div><div class="window"></div><div class="window"></div></div>
-        <div class="tower"><div class="window"></div><div class="window"></div><div class="window"></div><div class="window"></div></div>
+    <div class="hero-visual reveal">
+      <img class="founder-hero-photo"
+           src="founder.jpg"
+           alt="Mohammed Shahid, founder of CIVORA"
+           onerror="this.style.display='none';document.getElementById('photoFallback').style.display='grid';">
+      <div id="photoFallback" style="display:none;place-items:center;min-height:260px;color:#e6b84f;font-size:80px;font-weight:900;">C</div>
+      <div class="founder-label">
+        <strong>Mohammed Shahid</strong>
+        <span>Founder of CIVORA</span>
       </div>
-      <div class="ground-line"></div>
-      <div class="blueprint-label">DESIGN · CALCULATE · CONSTRUCT</div>
     </div>
   </section>
 
+  <!-- FEATURES -->
   <section id="features">
     <div class="container">
       <div class="section-head reveal">
-        <div class="eyebrow">What we are building</div>
-        <h2>Everything starts with a <span class="gold">strong foundation.</span></h2>
-        <p>Practical resources for the work that happens on drawings, in classrooms and on construction sites.</p>
+        <div class="eyebrow">The CIVORA vision</div>
+        <h2>Engineering tools for <span class="gold">your journey.</span></h2>
+        <p>Designed to help students and professionals learn, calculate and organise everyday engineering tasks.</p>
       </div>
 
       <div class="grid">
         <article class="card reveal">
           <div class="card-icon">🧮</div>
-          <h3>Engineering Calculators</h3>
-          <p>Quick calculations for common construction tasks, with simple inputs and clear results.</p>
+          <h3>Calculators</h3>
+          <p>Calculate concrete quantities, steel weights, brick counts and preliminary project costs.</p>
           <a class="card-link" href="#tools">Try calculators ↗</a>
         </article>
         <article class="card reveal">
           <div class="card-icon">📐</div>
-          <h3>Bar Bending Schedule</h3>
-          <p>Plan reinforcement measurements and understand the quantities used in structural work.</p>
-          <a class="card-link" href="#contact">Explore the vision ↗</a>
+          <h3>BBS & Rebar</h3>
+          <p>Build your understanding of reinforcement measurements and bar bending schedules.</p>
+          <a class="card-link" href="#contact">Follow progress ↗</a>
         </article>
         <article class="card reveal">
           <div class="card-icon">🏗️</div>
           <h3>Estimation</h3>
-          <p>Learn how quantities, rates and project assumptions influence construction estimates.</p>
-          <a class="card-link" href="#tools">Estimate a project ↗</a>
+          <p>Explore preliminary quantity and construction cost estimates using your project inputs.</p>
+          <a class="card-link" href="#tools">Estimate costs ↗</a>
         </article>
         <article class="card reveal">
           <div class="card-icon">🦺</div>
           <h3>Site Tools</h3>
-          <p>A growing collection of practical helpers for measurements and everyday site work.</p>
-          <a class="card-link" href="#tools">Use available tools ↗</a>
+          <p>A growing vision for practical measurement and calculation helpers for site work.</p>
+          <a class="card-link" href="#contact">Learn more ↗</a>
         </article>
         <article class="card reveal">
           <div class="card-icon">📚</div>
-          <h3>Learning Resources</h3>
-          <p>Build your knowledge through civil engineering concepts, references and useful guides.</p>
-          <a class="card-link" href="#contact">Follow CIVORA ↗</a>
+          <h3>Learning</h3>
+          <p>Engineering concepts and useful resources to support your learning journey.</p>
+          <a class="card-link" href="#contact">Connect with us ↗</a>
         </article>
         <article class="card reveal">
           <div class="card-icon">📁</div>
           <h3>Projects & Documents</h3>
-          <p>Work toward a central place for project resources, drawings and engineering documents.</p>
-          <a class="card-link" href="#projects">View project vision ↗</a>
+          <p>A developing collection of project resources, drawings and documents.</p>
+          <a class="card-link" href="#launch">See the vision ↗</a>
         </article>
       </div>
     </div>
   </section>
 
+  <!-- WORKING CALCULATORS -->
   <section class="tools-section" id="tools">
     <div class="container">
       <div class="section-head reveal">
         <div class="eyebrow">CIVORA tool desk</div>
         <h2>Calculate with <span class="gold">confidence.</span></h2>
-        <p>Choose a calculator, enter your measurements and get an estimate. Results are indicative and should be checked before actual construction.</p>
+        <p>Choose a tool and enter your measurements. These are preliminary estimates, not substitutes for approved engineering designs.</p>
       </div>
 
       <div class="calculator-layout reveal">
         <div class="tool-tabs" role="tablist" aria-label="Construction calculators">
           <button class="tool-tab active" data-tool="concrete" role="tab" aria-selected="true">🧱 Concrete</button>
-          <button class="tool-tab" data-tool="steel" role="tab" aria-selected="false">🔩 Steel Weight</button>
+          <button class="tool-tab" data-tool="steel" role="tab" aria-selected="false">🔩 Steel</button>
           <button class="tool-tab" data-tool="bricks" role="tab" aria-selected="false">🧱 Bricks</button>
-          <button class="tool-tab" data-tool="cost" role="tab" aria-selected="false">₹ Cost Estimate</button>
+          <button class="tool-tab" data-tool="cost" role="tab" aria-selected="false">₹ Cost</button>
         </div>
-
         <div class="calc-panel">
           <div id="calcContent"></div>
-          <div class="note">For learning and preliminary estimation only. Confirm dimensions, wastage, specifications and local rates with a qualified professional.</div>
+          <div class="note">For preliminary estimation only. Confirm measurements, material specifications, local rates and design requirements before construction.</div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- FOUNDER SECTION WITH YOUR PHOTO -->
   <section id="about">
     <div class="container founder-layout">
-      <div class="founder-mark reveal" aria-label="CIVORA logo letter C"><span>C</span></div>
+      <div class="founder-photo-frame reveal">
+        <img src="founder.jpg"
+             alt="Mohammed Shahid — founder of CIVORA"
+             loading="lazy"
+             onerror="this.alt='Founder photo not uploaded yet';this.style.minHeight='250px';">
+      </div>
+
       <div class="founder-copy reveal">
-        <div class="eyebrow">The person behind CIVORA</div>
-        <h2>One civil engineering student. <span class="gold">One big vision.</span></h2>
+        <div class="eyebrow">Meet the founder</div>
+        <h2>One student.<br><span class="gold">One big vision.</span></h2>
         <p>
-          I'm Mohammed Shahid, a second-year Civil Engineering student and the
-          founder of CIVORA. I started this project to make useful engineering
-          tools more accessible to students and professionals.
+          I'm Mohammed Shahid, a second-year Civil Engineering student and
+          the founder of CIVORA. I started this project with a simple goal:
+          make useful civil engineering tools easier to access.
         </p>
         <p>
-          Building an app while studying has meant learning new technologies,
-          solving bugs, testing features and improving the experience one step
-          at a time. CIVORA is a work in progress, and every improvement moves
-          the vision forward.
+          Building CIVORA while studying means learning new technologies,
+          fixing bugs, testing features and improving the experience step
+          by step. Every challenge is another opportunity to learn.
+        </p>
+        <p>
+          My vision is to create a helpful platform for civil engineering
+          students, engineers and construction professionals.
         </p>
         <div class="stats">
-          <div><strong>Learn</strong><span>Keep improving</span></div>
-          <div><strong>Build</strong><span>Make useful tools</span></div>
-          <div><strong>Grow</strong><span>Build with community</span></div>
+          <div><strong>Learn</strong><span>Every day</span></div>
+          <div><strong>Build</strong><span>With purpose</span></div>
+          <div><strong>Grow</strong><span>Together</span></div>
         </div>
         <div class="hero-actions">
           <a class="btn" href="https://instagram.com/civora.build" target="_blank" rel="noopener noreferrer">Follow CIVORA ↗</a>
+          <a class="btn btn-outline" href="mailto:teamcivora@gmail.com">Email Me</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="projects">
+  <!-- APP LAUNCH -->
+  <section class="launch-section" id="launch">
     <div class="container">
-      <div class="section-head reveal">
-        <div class="eyebrow">The CIVORA roadmap</div>
-        <h2>Ideas becoming <span class="gold">reality.</span></h2>
-        <p>A growing collection of tools and resources, developed step by step.</p>
-      </div>
-      <div class="grid">
-        <article class="card project-card reveal">
-          <div class="project-art">🧮</div>
-          <div class="project-info">
-            <h3>Smart Calculators</h3>
-            <p>Concrete, steel, brick and preliminary cost calculations.</p>
-          </div>
-        </article>
-        <article class="card project-card reveal">
-          <div class="project-art">📐</div>
-          <div class="project-info">
-            <h3>Site & Estimation Tools</h3>
-            <p>Practical helpers to support learning and everyday measurement tasks.</p>
-          </div>
-        </article>
-        <article class="card project-card reveal">
-          <div class="project-art">📱</div>
-          <div class="project-info">
-            <h3>CIVORA Mobile App</h3>
-            <p>A student-built civil engineering app under active development.</p>
-          </div>
-        </article>
+      <div class="launch-card reveal">
+        <div class="eyebrow">The next step starts here</div>
+        <h2>Something big is<br><span class="gold">under construction.</span></h2>
+        <p>
+          The CIVORA app is being developed to bring useful civil engineering
+          tools and resources into one place. Follow our journey for launch updates.
+        </p>
+        <div class="launch-month">COMING SOON · APRIL</div>
+        <p style="margin-top:14px;font-size:13px">
+          Planned Google Play launch. The exact release date will be announced when confirmed.
+        </p>
+        <div class="hero-actions" style="justify-content:center">
+          <a class="btn" href="https://instagram.com/civora.build" target="_blank" rel="noopener noreferrer">Get Launch Updates ↗</a>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- CONTACT -->
   <section id="contact">
     <div class="container">
-      <div class="cta reveal">
-        <div class="eyebrow">Be part of the journey</div>
-        <h2>Let's build the future of <span class="gold">civil engineering.</span></h2>
-        <p>Follow the progress, share ideas and connect with CIVORA as the project grows.</p>
-        <div class="hero-actions" style="justify-content:center">
-          <a class="btn" href="https://instagram.com/civora.build" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
-          <a class="btn btn-outline" href="mailto:teamcivora@gmail.com">Email CIVORA</a>
-        </div>
+      <div class="section-head reveal">
+        <div class="eyebrow">Stay connected</div>
+        <h2>Let's build the future <span class="gold">together.</span></h2>
+        <p>Have an idea, suggestion or feedback for CIVORA? Connect with us.</p>
+      </div>
+      <div class="grid">
+        <article class="card reveal">
+          <div class="card-icon">📸</div>
+          <h3>Instagram</h3>
+          <p>Follow updates, progress and launch announcements.</p>
+          <a class="card-link" href="https://instagram.com/civora.build" target="_blank" rel="noopener noreferrer">@civora.build ↗</a>
+        </article>
+        <article class="card reveal">
+          <div class="card-icon">✉️</div>
+          <h3>Email</h3>
+          <p>Send your feedback and ideas to the CIVORA team.</p>
+          <a class="card-link" href="mailto:teamcivora@gmail.com">teamcivora@gmail.com ↗</a>
+        </article>
+        <article class="card reveal">
+          <div class="card-icon">🚀</div>
+          <h3>Coming Soon</h3>
+          <p>Follow the development journey as CIVORA works toward launch.</p>
+          <a class="card-link" href="#launch">Launch information ↗</a>
+        </article>
       </div>
     </div>
   </section>
@@ -466,13 +639,14 @@
         <div class="brand-mark">C</div>
         <div class="brand-name">CIV<span>ORA</span></div>
       </a>
-      <p style="margin-top:12px">Build smarter. Build better.</p>
+      <p style="margin-top:10px">Build smarter. Build better.</p>
       <p>© <span id="year"></span> CIVORA. Built with ambition.</p>
     </div>
     <div class="footer-links">
       <a href="#features">Features</a>
       <a href="#tools">Calculators</a>
       <a href="#about">Founder</a>
+      <a href="#launch">Launch</a>
       <a href="https://instagram.com/civora.build" target="_blank" rel="noopener noreferrer">Instagram</a>
       <a href="mailto:teamcivora@gmail.com">Contact</a>
     </div>
@@ -482,13 +656,14 @@
 <button id="topBtn" aria-label="Back to top">↑</button>
 
 <script>
+  // Mobile navigation
   const menuBtn = document.getElementById("menuBtn");
   const navLinks = document.getElementById("navLinks");
 
   menuBtn.addEventListener("click", () => {
-    const isOpen = navLinks.classList.toggle("open");
-    menuBtn.setAttribute("aria-expanded", String(isOpen));
-    menuBtn.textContent = isOpen ? "✕ Close" : "☰ Menu";
+    const open = navLinks.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", String(open));
+    menuBtn.textContent = open ? "✕ Close" : "☰ Menu";
   });
 
   navLinks.querySelectorAll("a").forEach(link => {
@@ -499,97 +674,108 @@
     });
   });
 
+  // Current year and back-to-top button
   document.getElementById("year").textContent = new Date().getFullYear();
-
   const topBtn = document.getElementById("topBtn");
+
   window.addEventListener("scroll", () => {
-    topBtn.style.display = window.scrollY > 500 ? "block" : "none";
+    topBtn.style.display = window.scrollY > 450 ? "block" : "none";
   });
-  topBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+  topBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+  // Reveal sections when scrolling
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
 
-  const calcContent = document.getElementById("calcContent");
-  const toolButtons = document.querySelectorAll(".tool-tab");
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+  } else {
+    document.querySelectorAll(".reveal").forEach(el => el.classList.add("visible"));
+  }
 
+  // Calculator definitions
   const calculators = {
     concrete: {
       title: "Concrete Volume Calculator",
       description: "Calculate the geometric volume of a rectangular slab, beam or footing.",
       fields: [
-        { id: "length", label: "Length (m)", value: "5", min: "0.001" },
-        { id: "width", label: "Width (m)", value: "3", min: "0.001" },
-        { id: "depth", label: "Depth / thickness (m)", value: "0.15", min: "0.001" }
+        { id: "length", label: "Length (m)", value: "5", min: 0.001 },
+        { id: "width", label: "Width (m)", value: "3", min: 0.001 },
+        { id: "depth", label: "Depth / thickness (m)", value: "0.15", min: 0.001 }
       ],
-      calculate: v => {
-        const volume = v.length * v.width * v.depth;
-        return { value: volume.toFixed(3) + " m³", detail: "Geometric volume. Allow for wastage and site conditions separately." };
-      }
+      calculate: v => ({
+        value: (v.length * v.width * v.depth).toFixed(3) + " m³",
+        detail: "Geometric volume. Allow for wastage and site conditions separately."
+      })
     },
     steel: {
       title: "Steel Bar Weight Calculator",
       description: "Estimate the theoretical mass of round reinforcing bars.",
       fields: [
-        { id: "diameter", label: "Bar diameter (mm)", value: "12", min: "1" },
-        { id: "barLength", label: "Total bar length (m)", value: "12", min: "0.001" }
+        { id: "diameter", label: "Bar diameter (mm)", value: "12", min: 1 },
+        { id: "barLength", label: "Total bar length (m)", value: "12", min: 0.001 }
       ],
-      calculate: v => {
-        const weightPerMetre = v.diameter * v.diameter / 162;
-        const weight = weightPerMetre * v.barLength;
-        return { value: weight.toFixed(2) + " kg", detail: "Uses the approximate formula d²/162 kg/m. Actual supply weights may vary." };
-      }
+      calculate: v => ({
+        value: (v.diameter * v.diameter / 162 * v.barLength).toFixed(2) + " kg",
+        detail: "Uses the approximate d²/162 kg/m formula. Actual supply weights may vary."
+      })
     },
     bricks: {
       title: "Brick Quantity Estimator",
-      description: "Estimate bricks for a wall using wall and brick dimensions.",
+      description: "Estimate bricks by wall dimensions and nominal brick size with mortar joints.",
       fields: [
-        { id: "wallLength", label: "Wall length (m)", value: "5", min: "0.001" },
-        { id: "wallHeight", label: "Wall height (m)", value: "3", min: "0.001" },
-        { id: "wallThickness", label: "Wall thickness (m)", value: "0.20", min: "0.001" },
-        { id: "brickLength", label: "Brick length (mm)", value: "190", min: "1" },
-        { id: "brickWidth", label: "Brick width (mm)", value: "90", min: "1" },
-        { id: "brickHeight", label: "Brick height (mm)", value: "90", min: "1" },
-        { id: "mortar", label: "Mortar joint (mm)", value: "10", min: "0" },
-        { id: "waste", label: "Wastage (%)", value: "5", min: "0" }
+        { id: "wallLength", label: "Wall length (m)", value: "5", min: 0.001 },
+        { id: "wallHeight", label: "Wall height (m)", value: "3", min: 0.001 },
+        { id: "wallThickness", label: "Wall thickness (m)", value: "0.20", min: 0.001 },
+        { id: "brickLength", label: "Brick length (mm)", value: "190", min: 1 },
+        { id: "brickWidth", label: "Brick width (mm)", value: "90", min: 1 },
+        { id: "brickHeight", label: "Brick height (mm)", value: "90", min: 1 },
+        { id: "mortar", label: "Mortar joint (mm)", value: "10", min: 0 },
+        { id: "waste", label: "Wastage (%)", value: "5", min: 0 }
       ],
       calculate: v => {
         const wallVolume = v.wallLength * v.wallHeight * v.wallThickness;
-        const unitVolume =
+        const brickVolume =
           ((v.brickLength + v.mortar) / 1000) *
           ((v.brickWidth + v.mortar) / 1000) *
           ((v.brickHeight + v.mortar) / 1000);
-        const count = wallVolume / unitVolume * (1 + v.waste / 100);
-        return { value: Math.ceil(count).toLocaleString() + " bricks", detail: "Approximate volume-based estimate including the selected wastage. Openings and bonding patterns are not deducted." };
+        const total = Math.ceil(wallVolume / brickVolume * (1 + v.waste / 100));
+
+        return {
+          value: total.toLocaleString("en-IN") + " bricks",
+          detail: "Approximate volume-based estimate including the selected wastage. Openings are not deducted."
+        };
       }
     },
     cost: {
       title: "Preliminary Construction Cost",
-      description: "Estimate a basic building budget using built-up area and a rate per square foot.",
+      description: "Estimate a basic budget from built-up area and rate per square foot.",
       fields: [
-        { id: "area", label: "Built-up area (sq ft)", value: "1000", min: "1" },
-        { id: "rate", label: "Rate (₹ per sq ft)", value: "1500", min: "1" },
-        { id: "floors", label: "Number of floors", value: "1", min: "1" }
+        { id: "area", label: "Built-up area (sq ft)", value: "1000", min: 1 },
+        { id: "rate", label: "Rate (₹ per sq ft)", value: "1500", min: 1 },
+        { id: "floors", label: "Number of floors", value: "1", min: 1 }
       ],
-      calculate: v => {
-        const cost = v.area * v.rate * v.floors;
-        return {
-          value: "₹" + Math.round(cost).toLocaleString("en-IN"),
-          detail: "Preliminary estimate only. Confirm whether area is per floor and whether the rate includes all required works."
-        };
-      }
+      calculate: v => ({
+        value: "₹" + Math.round(v.area * v.rate * v.floors).toLocaleString("en-IN"),
+        detail: "Preliminary estimate. Confirm whether area is per floor and what works are included in the rate."
+      })
     }
   };
 
+  const calcContent = document.getElementById("calcContent");
+  const toolButtons = document.querySelectorAll(".tool-tab");
+
   function renderCalculator(name) {
     const calc = calculators[name];
+
     calcContent.innerHTML = `
       <h3>${calc.title}</h3>
       <p>${calc.description}</p>
@@ -616,18 +802,23 @@
 
     form.addEventListener("submit", event => {
       event.preventDefault();
-
       const values = {};
+
       for (const field of calc.fields) {
         const input = form.elements[field.id];
         const value = Number(input.value);
 
-        if (input.value.trim() === "" || !Number.isFinite(value) || value < Number(field.min)) {
+        if (input.value.trim() === "" ||
+            !Number.isFinite(value) ||
+            value < field.min ||
+            (name === "bricks" && field.id === "waste" && value > 1000)) {
           input.focus();
           result.style.display = "block";
-          result.innerHTML = "<strong>Check your inputs</strong><small>Enter valid positive measurements for every field.</small>";
+          result.innerHTML =
+            "<strong>Check your inputs</strong><small>Enter valid positive measurements for every field.</small>";
           return;
         }
+
         values[field.id] = value;
       }
 
@@ -648,6 +839,7 @@
         item.classList.remove("active");
         item.setAttribute("aria-selected", "false");
       });
+
       button.classList.add("active");
       button.setAttribute("aria-selected", "true");
       renderCalculator(button.dataset.tool);
